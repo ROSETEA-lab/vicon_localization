@@ -1,0 +1,26 @@
+vicon_localization:
+  ros__parameters:
+    # Vicon tracker
+    vicon_pose_topic: /vicon/pose
+
+    # Frames
+    global_frame_id: map
+    odom_frame_id: odom
+    base_frame_id: base_link
+    vicon_world_frame: vicon_world
+    vicon_robot_frame: vicon_robot
+
+    # Localization
+    tf_broadcast: true
+    localization_publishing_rate: 20.0
+    lookup_timeout_sec: 0.05
+    max_pose_age_sec: 0.5  # stop publishing if Vicon tracking is stale
+    transform_tolerance: 0.20 # seconds; output map->odom is stamped now + tolerance
+
+    # Static TF: vicon_world -> map
+    world_map_xyz: [ 0.0, 0.0, 0.0 ]
+    world_map_rpy: [ 0.0, 0.0, 0.0 ]
+
+    # Static TF: base_link -> vicon_robot
+    base_vicon_xyz: [ 0.0, 0.0, 0.0 ]
+    base_vicon_rpy: [ 0.0, 0.0, 0.0 ]
